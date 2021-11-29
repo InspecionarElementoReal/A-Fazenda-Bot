@@ -4,7 +4,6 @@ import time
 
 CANDIDATE_INDEX = 0
 FILE_NAME = 'registry.txt'
-DURATION_SEC = 3600
 
 async def main():
     browser = await pyppeteer.launch(defaultViewport={'width': 1920, 'height': 1080}, headless=False)
