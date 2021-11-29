@@ -12,12 +12,11 @@ async def main():
     page = await browser.newPage()
 
     await page.goto('https://afazenda.r7.com/a-fazenda-13/votacao')
-    end = time.time() + DURATION_SEC
-    while time.time() < end:
+    while True:
         time.sleep(0.5)
         candidates = await page.querySelectorAll('.voting-card')
         if(CANDIDATE_INDEX < len(candidates)):
-            candidate = candidates[0]
+            candidate = candidates[CANDIDATE_INDEX]
             await candidate.click()
             time.sleep(0.5)
             iframes = await page.querySelectorAll('iframe')
